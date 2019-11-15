@@ -27,23 +27,33 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
       .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(res => {
-      console.log('Put', res);
-  
-      const editedColorArray = colors.map(el => {
-        if (el.id !== res.data.id) {
-          return el
-        } else {
-          return res.data
-      }})
-      updateColors(editedColorArray);
-      history.push("/bubblepage");
-      }
-    )
-    .catch(err => console.log(err));
+        console.log('Put', res);
+    
+        const editedColorArray = colors.map(el => {
+          if (el.id !== res.data.id) {
+            return el
+          } else {
+            return res.data
+          }})
+        updateColors(editedColorArray);
+        history.push("/bubblepage");
+      })
+      .catch(err => console.log(err));
   }
 
   const deleteColor = color => {
     // make a delete request to delete this color
+    axiosWithAuth()
+    .delete(`/api/colors/${color.id}`)
+    .then(res => {
+      console.log('delete res', res)
+      const newColorList = colors.filter(el => {
+        return el.id !== res.data
+      })
+      updateColors(newColorList);
+      history.push('/bubblepage');
+    })
+    .catch(err => console.log(err));
   };
 
   return (
