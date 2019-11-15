@@ -41,29 +41,33 @@ const AddColorForm = ({updateColors}) => {
     return (
         <div className="addFriendForm">
             <form onSubmit={handleSubmit}>
-                <legend>Add Color</legend>
-                <label htmlFor="color">Name:</label>
+                <legend>add color</legend>
+                <label>
+                    color name:
                 <input 
                     onChange={handleColorChange} 
                     type="text" 
                     name="color" 
                     value={newColor.color} 
-                    placeholder="Color Name" 
+                    placeholder="color name" 
                     size="30" 
                     required
                 />
-                <label htmlFor="hex">Hex:</label>
+                </label>
+                <label>
+                    hex code:
                 <input 
                     onChange={handleHexChange} 
                     type="text" 
                     name="hex" 
                     value={newColor.code.hex} 
-                    placeholder="hex" 
+                    placeholder="hex code" 
                     size="30" 
                     required
                 />
+                </label>
             <div className="button-row">
-                <button type="submit">Add Color</button>
+                <button type="submit">add color</button>
             </div>
         </form>    
     </div>  
