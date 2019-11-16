@@ -31,12 +31,12 @@ const LoginPage = (props) => {
 
     return (
       <div className="loginForm">
-      <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
-        <div className="fieldContainer">
-            <div className="name">
-              <label htmlFor="name"><h3>Name</h3></label>
-                <div className="inputContainer">
+        <h1>Welcome to the Bubble App!</h1>
+            <div className="formContainer">
+            <legend>Log In</legend>
+              <label>
+                  Name: 
                     <input
                         type="text"
                         name="username"
@@ -44,13 +44,9 @@ const LoginPage = (props) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
-            </div>
-        </div>
-        <div className="fieldContainer">
-            <div className="password">
-              <label htmlFor="password"><h3>Password</h3></label>
-                <div className="inputContainer">
+              </label>
+              <label>
+                  Password:
                     <input
                         type="password"
                         name="password"
@@ -58,11 +54,10 @@ const LoginPage = (props) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
+                </label>
+            <div className="formButtonContainer">
+            <button>Log In</button>
             </div>
-        </div>
-        <div className="formButtonContainer">
-          <button>Log In</button>
         </div>
         </form>
       </div>
